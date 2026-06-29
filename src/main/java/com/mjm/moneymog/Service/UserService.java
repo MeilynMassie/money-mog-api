@@ -1,0 +1,14 @@
+package com.mjm.moneymog.Service;
+
+import java.util.List;
+import java.util.UUID;
+
+import com.mjm.moneymog.entity.User;
+
+public interface UserService {
+    List<User> getAllUsers();
+    User getUserById(UUID id);
+    User getUserByEmail(String email);
+    void saveUser(User user);
+    void deleteUser(UUID id);
+}
