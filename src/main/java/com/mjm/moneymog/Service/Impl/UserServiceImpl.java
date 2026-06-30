@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.mjm.moneymog.Repository.UserRepository;
 import com.mjm.moneymog.Service.UserService;
 import com.mjm.moneymog.entity.User;
+import com.mjm.moneymog.exception.ResourceNotFoundException;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -27,22 +28,22 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserById(UUID id) {
-        return userRepository.findById(id).orElse(null);
+        return userRepository.findById(id).orElseThrow(() ->
+                    new ResourceNotFoundException("User", id));
     }
 
     @Override
     public User getUserByEmail(String email) {
-        return userRepository.findByEmail(email);
-    }
-
-    @Override
-    public void saveUser(User user) {
-        userRepository.save(user);
+        return userRepository.findByEmail(email).orElseThrow(() ->
+                    new ResourceNotFoundException("User", email));
     }
 
     @Override
     public void deleteUser(UUID id) {
-        userRepository.deleteById(id);
+        User user = userRepository.findById(id)
+            .orElseThrow(() ->
+                    new ResourceNotFoundException("User", id));
+        userRepository.delete(user);
     }
 
     @Override

@@ -9,7 +9,6 @@ public interface UserService {
     List<User> getAllUsers();
     User getUserById(UUID id);
     User getUserByEmail(String email);
-    void saveUser(User user);
     void deleteUser(UUID id);
     User createUser(User user);
 }
