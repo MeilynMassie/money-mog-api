@@ -23,7 +23,7 @@ public class User {
     @Column(name = "password_hash", nullable = false)
     private String password;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "created_at", nullable = false, insertable = false, updatable = false)
     private LocalDateTime createdAt;
 
     public UUID getId() {

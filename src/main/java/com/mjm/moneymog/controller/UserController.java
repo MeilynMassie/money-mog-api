@@ -39,6 +39,11 @@ public class UserController {
         return userService.getUserByEmail(email);
     }
 
+    @PostMapping
+    public User createUser(@RequestBody User user) {
+        return userService.createUser(user);
+    }
+
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable UUID id) {
         userService.deleteUser(id);
