@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mjm.moneymog.Service.AccountService;
 import com.mjm.moneymog.entity.Account;
+import com.mjm.moneymog.service.AccountService;
 
 @RestController
 @RequestMapping("/accounts")

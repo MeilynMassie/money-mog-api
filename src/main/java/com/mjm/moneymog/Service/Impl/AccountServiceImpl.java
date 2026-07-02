@@ -1,4 +1,4 @@
-package com.mjm.moneymog.Service.Impl;
+package com.mjm.moneymog.service.impl;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,10 +6,10 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mjm.moneymog.Repository.AccountRepository;
-import com.mjm.moneymog.Service.AccountService;
+import com.mjm.moneymog.service.AccountService;
 import com.mjm.moneymog.entity.Account;
 import com.mjm.moneymog.exception.ResourceNotFoundException;
+import com.mjm.moneymog.repository.AccountRepository;
 
 @Service
 public class AccountServiceImpl implements AccountService {

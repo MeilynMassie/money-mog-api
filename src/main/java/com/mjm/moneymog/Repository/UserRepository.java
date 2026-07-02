@@ -1,4 +1,4 @@
-package com.mjm.moneymog.Repository;
+package com.mjm.moneymog.repository;
 
 import java.util.Optional;
 import java.util.UUID;

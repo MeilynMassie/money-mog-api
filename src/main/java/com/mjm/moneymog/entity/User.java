@@ -5,8 +5,12 @@ import java.util.UUID;
 
 import org.hibernate.annotations.UuidGenerator;
 
+import com.mjm.moneymog.enums.UserStatus;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 
 @Entity(name = "users")
@@ -22,6 +26,10 @@ public class User {
 
     @Column(name = "password_hash", nullable = false)
     private String password;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name="status", nullable = false)
+    private UserStatus status;
 
     @Column(name = "created_at", nullable = false, insertable = false, updatable = false)
     private LocalDateTime createdAt;

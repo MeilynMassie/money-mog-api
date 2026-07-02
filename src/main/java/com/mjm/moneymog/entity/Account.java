@@ -2,10 +2,13 @@ package com.mjm.moneymog.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import org.hibernate.annotations.UuidGenerator;
 
+import com.mjm.moneymog.enums.AccountStatus;
 import com.mjm.moneymog.enums.AccountType;
 
 import jakarta.persistence.Column;
@@ -16,6 +19,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity(name = "accounts")
 public class Account {
@@ -45,8 +49,15 @@ public class Account {
     @Column(name = "currency", nullable = false)
     private String currency;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name="status", nullable = false)
+    private AccountStatus status;
+
     @Column(name = "created_at", nullable = false, insertable = false, updatable = false)
     private LocalDateTime createdAt;
+
+    @OneToMany(mappedBy = "account")
+    private List<Transaction> transactions = new ArrayList<>();
 
     public UUID getId() {
         return id;
@@ -109,5 +120,13 @@ public class Account {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
     }
 }

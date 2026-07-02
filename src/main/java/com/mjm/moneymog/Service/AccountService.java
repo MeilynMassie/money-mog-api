@@ -1,4 +1,4 @@
-package com.mjm.moneymog.Service;
+package com.mjm.moneymog.service;
 
 import java.util.List;
 import java.util.UUID;

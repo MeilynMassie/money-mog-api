@@ -1,4 +1,4 @@
-package com.mjm.moneymog.Service.Impl;
+package com.mjm.moneymog.service.impl;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,10 +6,10 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mjm.moneymog.Repository.UserRepository;
-import com.mjm.moneymog.Service.UserService;
+import com.mjm.moneymog.service.UserService;
 import com.mjm.moneymog.entity.User;
 import com.mjm.moneymog.exception.ResourceNotFoundException;
+import com.mjm.moneymog.repository.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService {

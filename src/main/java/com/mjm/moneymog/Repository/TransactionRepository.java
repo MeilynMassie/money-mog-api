@@ -1,12 +1,11 @@
 package com.mjm.moneymog.repository;
 
-
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.mjm.moneymog.entity.Account;
+import com.mjm.moneymog.entity.Transaction;
 
-public interface AccountRepository extends JpaRepository<Account, UUID> {
+public interface TransactionRepository extends JpaRepository<Transaction, UUID> {
     
 }
